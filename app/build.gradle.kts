@@ -4,7 +4,7 @@ plugins {
     id("com.android.application")
     id("org.jetbrains.kotlin.android")
     kotlin("kapt")
-    id("kotlin-kapt")
+    //id("kotlin-kapt")
     id("com.google.devtools.ksp")
     id("com.google.dagger.hilt.android")
 }
@@ -80,15 +80,15 @@ dependencies {
 
     implementation ("org.jetbrains.kotlinx:kotlinx-coroutines-core:1.5.0")
     implementation ("org.jetbrains.kotlinx:kotlinx-coroutines-android:1.6.4")
-    implementation ("com.google.dagger:hilt-android:2.44")
+   // implementation ("com.google.dagger:hilt-android:2.44")
 
     implementation("androidx.lifecycle:lifecycle-viewmodel-ktx:2.6.2")
 
     implementation ("androidx.lifecycle:lifecycle-viewmodel-compose:2.6.2")
     implementation ("androidx.lifecycle:lifecycle-viewmodel-savedstate:2.6.2")
-    implementation ("com.google.dagger:hilt-android:2.44")
 
-    implementation ("androidx.hilt:hilt-navigation-compose:1.0.0")
+
+
     implementation("androidx.room:room-ktx:2.6.0")
 
 
