@@ -26,16 +26,12 @@ class MainActivity : ComponentActivity() {
         setContent {
             MyContactAppTheme {
                 // A surface container using the 'background' color from the theme
-                Surface(
-                    modifier = Modifier.fillMaxSize(),
-                    color = MaterialTheme.colorScheme.background
-                ) {
                     val vm= hiltViewModel<ContactScreenViewModel>()
                     val state by vm.state.collectAsState()
 
 
                     ContactScreen(state = state, event = vm::events)
-                }
+
             }
         }
     }

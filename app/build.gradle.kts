@@ -4,7 +4,7 @@ plugins {
     id("com.android.application")
     id("org.jetbrains.kotlin.android")
     kotlin("kapt")
-    //id("kotlin-kapt")
+
     id("com.google.devtools.ksp")
     id("com.google.dagger.hilt.android")
 }
@@ -46,7 +46,7 @@ android {
         compose = true
     }
     composeOptions {
-        kotlinCompilerExtensionVersion = "1.4.1"
+        kotlinCompilerExtensionVersion = "1.5.4"
     }
     packaging {
         resources {
@@ -74,13 +74,13 @@ dependencies {
     debugImplementation("androidx.compose.ui:ui-test-manifest")
 
 
-
+    val room_version = "2.6.0"
     implementation ("androidx.room:room-runtime:2.6.0")
-    annotationProcessor("androidx.room:room-compiler:2.6.0")
-
+   // annotationProcessor("androidx.room:room-compiler:2.6.0")
+    ksp("androidx.room:room-compiler:$room_version")
     implementation ("org.jetbrains.kotlinx:kotlinx-coroutines-core:1.5.0")
     implementation ("org.jetbrains.kotlinx:kotlinx-coroutines-android:1.6.4")
-   // implementation ("com.google.dagger:hilt-android:2.44")
+
 
     implementation("androidx.lifecycle:lifecycle-viewmodel-ktx:2.6.2")
 
