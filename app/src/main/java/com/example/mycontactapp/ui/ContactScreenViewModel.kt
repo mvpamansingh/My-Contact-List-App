@@ -1,5 +1,7 @@
 package com.example.mycontactapp.ui
 
+import android.widget.Toast
+import androidx.compose.ui.platform.LocalContext
 import com.example.mycontactapp.Data.ContactEntityDaoImpl
 import dagger.hilt.android.lifecycle.HiltViewModel
 import kotlinx.coroutines.Dispatchers
@@ -9,6 +11,7 @@ import javax.inject.Inject
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import com.example.mycontactapp.Data.ContactEntity
+import dagger.hilt.android.qualifiers.ApplicationContext
 import kotlinx.coroutines.delay
 import kotlinx.coroutines.flow.update
 import kotlinx.coroutines.launch
@@ -88,6 +91,10 @@ class ContactScreenViewModel @Inject constructor(
 
                 viewModelScope.launch(Dispatchers.IO)
                 {
+                    if(state.value.fullName.isBlank() || state.value.position.isBlank() || state.value.phoneNumber.isBlank())
+                    {
+                        return@launch
+                    }
                     if(state.value.id == null){
                         dao.insertContactI(contactEntity =
                         ContactEntity(fullName = state.value.fullName,
@@ -101,9 +108,12 @@ class ContactScreenViewModel @Inject constructor(
                             it.copy(
                                 fullName = "",
                                 position = "",
-                                phoneNumber = ""
+                                phoneNumber = "",
+                                errorMessage = null
+
                             )
                         }
+
 
                     }else{
                         TODO("Update the todo with the id")
