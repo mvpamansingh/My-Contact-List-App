@@ -46,7 +46,7 @@ android {
         compose = true
     }
     composeOptions {
-        kotlinCompilerExtensionVersion = "1.5.4"
+        kotlinCompilerExtensionVersion = "1.5.4"         // compose compiler version {latest}
     }
     packaging {
         resources {
@@ -73,29 +73,30 @@ dependencies {
     debugImplementation("androidx.compose.ui:ui-tooling")
     debugImplementation("androidx.compose.ui:ui-test-manifest")
 
-
-    val room_version = "2.6.0"
-    implementation ("androidx.room:room-runtime:2.6.0")
-   // annotationProcessor("androidx.room:room-compiler:2.6.0")
+    //Room
+    val room_version = "2.6.0"                                      //{latest}
+    implementation ("androidx.room:room-runtime:2.6.0")             // used ksp instead of kapt
     ksp("androidx.room:room-compiler:$room_version")
+    implementation("androidx.room:room-ktx:2.6.0")
+
+    //Coroutines
     implementation ("org.jetbrains.kotlinx:kotlinx-coroutines-core:1.5.0")
     implementation ("org.jetbrains.kotlinx:kotlinx-coroutines-android:1.6.4")
 
-
-    implementation("androidx.lifecycle:lifecycle-viewmodel-ktx:2.6.2")
-
+    // viewmodel
+    implementation("androidx.lifecycle:lifecycle-viewmodel-ktx:2.6.2")           // {latest}
     implementation ("androidx.lifecycle:lifecycle-viewmodel-compose:2.6.2")
     implementation ("androidx.lifecycle:lifecycle-viewmodel-savedstate:2.6.2")
 
 
 
-    implementation("androidx.room:room-ktx:2.6.0")
 
 
 
 
 
-    implementation("com.google.dagger:hilt-android:2.48.1")
+    // dagger hilt
+    implementation("com.google.dagger:hilt-android:2.48.1")                    // {latest}
     implementation("androidx.hilt:hilt-navigation-compose:1.1.0-rc01")
     kapt("com.google.dagger:hilt-android-compiler:2.48.1")
     kapt("androidx.hilt:hilt-compiler:1.0.0")
