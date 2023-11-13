@@ -86,6 +86,22 @@ class ContactScreenViewModel @Inject constructor(
                     )
                 }
             }
+            is ContactScreenEvent.showDialog ->
+            {
+                _state.update {
+                    it.copy(
+                        isAddingContact  = true
+                    )
+                }
+            }
+            is ContactScreenEvent.hideDialog->
+            {
+                _state.update {
+                    it.copy(
+                        isAddingContact =false
+                    )
+                }
+            }
             ContactScreenEvent.save ->
             {
 
@@ -95,6 +111,8 @@ class ContactScreenViewModel @Inject constructor(
                     {
                         return@launch
                     }
+
+
                     if(state.value.id == null){
                         dao.insertContactI(contactEntity =
                         ContactEntity(fullName = state.value.fullName,
@@ -109,8 +127,8 @@ class ContactScreenViewModel @Inject constructor(
                                 fullName = "",
                                 position = "",
                                 phoneNumber = "",
-                                errorMessage = null
-
+                                errorMessage = null,
+                                isAddingContact = false
                             )
                         }
 

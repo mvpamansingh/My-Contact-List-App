@@ -12,4 +12,8 @@ sealed interface ContactScreenEvent
 
     object clearAll: ContactScreenEvent
     data class deleteContact(val v : ContactEntity): ContactScreenEvent
+
+
+    object showDialog:ContactScreenEvent
+    object hideDialog:ContactScreenEvent
 }

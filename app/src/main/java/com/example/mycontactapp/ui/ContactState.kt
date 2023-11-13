@@ -9,6 +9,7 @@ data class ContactState(
     val phoneNumber: String = "",
     val id:Int?= null,
     val listofContacts: List<ContactEntity> = emptyList(),
-    val errorMessage:String?=null
+    val errorMessage:String?=null,
+    val isAddingContact:Boolean = false
 
 )
